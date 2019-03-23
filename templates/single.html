@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+<!-------------start product item----------->
+{% load static %}
+{% block body %}
+<div id="single-product">
+  <div class="container">
+    <div class="row mt-5 pt-5">
+      <div class="col-md-5">
+        <div id="showcase" class="bg-dark">
+         <div id="myCarousel" class="carousel slide" data-ride="carousel">
+             <div class="carousel-inner">
+                 <img src="{{ product.picture.url }}" alt="">
+           </div>
+
+
+       </div>
+     </div>
+      </div>
+      <div class="col-md-7">
+          <p class="new-arrival text-center">New</p>
+          <h2>{{ product.title }}</h2>
+          <p>product Code: {{ product.product_code }}</p>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-o"></i>
+
+          <p class="price">TK ৳{{ product.price }} </p>
+          <p><b>Availability:</b>In Stock</p>
+          <p><b>Condition:</b>New</p>
+          <p><b>Brand:</b>{{ product.band }}</p>
+{% with request.resolver_match.url_name as url_name %}
+
+{% if url_name == 'gift_single' %}
+          <a href="{% url 'gift_order' pk=product.pk %}"><button type="button" class="btn btn-primary">Order Now</button></a>
+{% endif %}
+{% if url_name == 'nitto_single' %}
+          <a href="{% url 'nitto_order' pk=product.pk %}"><button type="button" class="btn btn-primary">Order Now</button></a>
+{% endif %}
+{% if url_name == 'panjabi_single' %}
+          <a href="{% url 'panjabi_order' pk=product.pk %}"><button type="button" class="btn btn-primary">Order Now</button></a>
+{% endif %}
+{% if url_name == 'pant_single' %}
+          <a href="{% url 'pant_order' pk=product.pk %}"><button type="button" class="btn btn-primary">Order Now</button></a>
+{% endif %}
+{% if url_name == 'shirt_single' %}
+          <a href="{% url 'shirt_order' pk=product.pk %}"><button type="button" class="btn btn-primary">Order Now</button></a>
+{% endif %}
+{% if url_name == 't_shirt_single' %}
+          <a href="{% url 't_shirt_order' pk=product.pk %}"><button type="button" class="btn btn-primary">Order Now</button></a>
+{% endif %}
+{% endwith %}
+        </div>
+        </div>
+      </div>
+  </div>
+
+
+
+<!---------start product---------->
+<div class="product-description">
+  <div class="container">
+    <h6 class="text-orange">Product Description</h6>
+    <p class="lead"> {{ product.description }}</p>
+     <hr><hr>
+  </div>
+  <div class="container pt-5">
+    <div class="row">
+      <h3>Smilar product</h3>
+    </div>
+    <div class=row>
+      <div class="underline"></div>
+    </div>
+  </div>
+
+
+  <!------product---->
+  <div class="container mt-5 text-center">
+    <div class="row">
+      {% for p in similar %}
+      <div class="col-md-3">
+        <div class="card">
+          <img src="{{ p.picture.url }}" class="img-fluid" alt="{{ p.title }}">
+          <div class="card-body">
+            <h5>{{ p.title }}</h5>
+            <h6>৳{{ p.price }}</h6>
+            <button class="btn btn-danger"><i class="fa fa-cart-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+
+
+    </div>
+  </div>
+</div>
+<!-----------end product------->
+{% endblock %}

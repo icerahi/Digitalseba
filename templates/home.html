@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div id="showcase" class="bg-dark">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-slide-to="0" data-target="#myCarousel" class="active"></li>
+      <li data-slide-to="1" data-target="#myCarousel"></li>
+      <li data-slide-to="2" data-target="#myCarousel"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item carousel-img-1 active">
+        <div class="container">
+          <div class="carousel-caption mb-5 pb-5">
+            <h2 class="display-4"> CHOOSE OUR BEST COLLECTION</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis numquam error officia sed dignissimos nesciunt dolorum, eum omnis neque sequi!</p>
+            <a href="#" class="btn btn-danger">এখনই কিনুন</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item carousel-img-2">
+        <div class="container">
+          <div class="carousel-caption mb-5 pb-5">
+            <h2 class="display-4">BEST WINTER COLLECTION</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis numquam error officia sed dignissimos nesciunt dolorum, eum omnis neque sequi!</p>
+            <a href="#" class="btn btn-info">এখনই কিনুন</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item carousel-img-3">
+        <div class="container">
+          <div class="carousel-caption mb-5 pb-5">
+            <h2 class="display-4">BEST WINTER COLLECTION</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis numquam error officia sed dignissimos nesciunt dolorum, eum omnis neque sequi!</p>
+            <a href="#" class="btn btn-primary">এখনই কিনুন</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+   <span class="sr-only">Previous</span>
+   </a>
+   <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+   <span class="sr-only">Next</span>
+   </a>
+</div>
+<!---side item-->
+<div id="nev-item" class="pt-3 pb-3 text-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 m-right">
+        <h4>বিনামূল্যে পরিবহন</h4>
+        <p>শর্ত প্রযোজ্য</p>
+      </div>
+      <div class="col-md-4 m-right">
+        <h4>আমাদের যে কোন সময় কল করুন</h4>
+        <p class="mb-auto">+8801812977112</p>
+        <p>+8801817356354</p>
+      </div>
+      <div class="col-md-4">
+        <h4>আমাদের অবস্থান</h4>
+        <p>ফেনী সদর ফেনী</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-5">
+  <div class="row">
+    <h3>সমস্ত পণ্য</h3>
+  </div>
+  <div class=row>
+    <div class="underline"></div>
+  </div>
+</div>
+
+<!------product---->
+
+
+
+<!---------->
+<div class="container mt-5">
+  <div class="row">
+    <h3>SHIRT COLLECTION</h3>
+  </div>
+  <div class="row">
+    <div class="underline">
+    </div>
+  </div>
+</div>
+<!---->
+<div class="container mt-5 text-center">
+  <div class="row">
+    {% for p in shirt %}
+    <div class="col-md-3">
+      <div class="card">
+      <a href="{% url 'shirt_single' pk=p.pk %}"> <img src="{{ p.picture.url }}" class="img-fluid" alt="{{ p.title }}"></a>
+        <div class="card-body">
+          <h5>{{ p.title }}</h5>
+          <h6>{{ p.price }}tk</h6>
+          <button class="btn btn-danger"><i class="fa fa-cart-plus"></i></button>
+        </div>
+      </div>
+    </div>
+     {% endfor %}
+
+
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <h3>T-SHIRT COLLECTION</h3>
+  </div>
+  <div class="row">
+    <div class="underline">
+    </div>
+  </div>
+</div>
+<!---->
+<div class="container mt-5 text-center">
+  <div class="row">
+    {% for p in t_shirt %}
+    <div class="col-md-3">
+      <div class="card">
+      <a href="{% url 't_shirt_single' pk=p.pk %}">  <img src="{{ p.picture.url }}" class="img-fluid" alt="{{ p.title }}"></a>
+        <div class="card-body">
+          <h5>{{ p.title }}</h5>
+          <h6>{{ p.price }}tk</h6>
+          <button class="btn btn-danger"><i class="fa fa-cart-plus"></i></button>
+        </div>
+      </div>
+    </div>
+     {% endfor %}
+
+
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <h3>PANJABI COLLECTION</h3>
+  </div>
+  <div class="row">
+    <div class="underline">
+    </div>
+  </div>
+</div>
+<!---->
+<div class="container mt-5 text-center">
+  <div class="row">
+    {% for p in panjabi %}
+    <div class="col-md-3">
+      <div class="card">
+      <a href="{% url 'panjabi_single' pk=p.pk %}"> <img src="{{ p.picture.url }}" class="img-fluid" alt="{{ p.title }}"></a>
+        <div class="card-body">
+          <h5>{{ p.title }}</h5>
+          <h6>{{ p.price }}tk</h6>
+          <button class="btn btn-danger"><i class="fa fa-cart-plus"></i></button>
+        </div>
+      </div>
+    </div>
+     {% endfor %}
+
+
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <h3>GIFT COLLECTION</h3>
+  </div>
+  <div class="row">
+    <div class="underline">
+    </div>
+  </div>
+</div>
+<!---->
+<div class="container mt-5 text-center">
+  <div class="row">
+    {% for p in gift %}
+    <div class="col-md-3">
+      <div class="card">
+      <a href="{% url 'gift_single' pk=p.pk %}"> <img src="{{ p.picture.url }}" class="img-fluid" alt="{{ p.title }}"></a>
+        <div class="card-body">
+          <h5>{{ p.title }}</h5>
+          <h6>{{ p.price }}tk</h6>
+          <button class="btn btn-danger"><i class="fa fa-cart-plus"></i></button>
+        </div>
+      </div>
+    </div>
+     {% endfor %}
+
+
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <h3>PANT COLLECTION</h3>
+  </div>
+  <div class="row">
+    <div class="underline">
+    </div>
+  </div>
+</div>
+<!---->
+<div class="container mt-5 text-center">
+  <div class="row">
+    {% for p in pant %}
+    <div class="col-md-3">
+      <div class="card">
+      <a href="{% url 'pant_single' pk=p.pk %}"> <img src="{{ p.picture.url }}" class="img-fluid" alt="{{ p.title }}"></a>
+        <div class="card-body">
+          <h5>{{ p.title }}</h5>
+          <h6>{{ p.price }}tk</h6>
+          <button class="btn btn-danger"><i class="fa fa-cart-plus"></i></button>
+        </div>
+      </div>
+    </div>
+     {% endfor %}
+
+
+  </div>
+</div>
+
+
+
+<!------home video section--->
+<div id="home-video" class="text-center text-light mt-5">
+  <div class="dark-overlay">
+    <div class="container">
+      <div class="row">
+        <div class="col mt-5 pt-4">
+          <div uk-lightbox class="">
+            <a href="https://youtu.be/_WfncNjYGP4" class="text-light">
+              <i class="fa fa-play"></i>
+            </a>
+            <h2 class="mt-3">ইউটিউবে আমাদের ভিডিও দেখতে পারেন</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-----photo gallery----->
+<div  uk-lightbox id="gallery" class="py-5 margin-top-none">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col">
+        <h2>ফটো গ্যালারি</h2>
+        <p class="lead">বিভিন্ন ধরনের পণ্য</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <a href="{%  static 'img/img5.jpg' %}">
+          <img src="{%  static 'img/img5.jpg' %}" class="img-fluid" alt="">
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="{%  static 'img/img6.jpg' %}">
+          <img src="{%  static 'img/img6.jpg' %}" class="img-fluid" alt="">
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="{%  static 'img/img7.jpg' %}">
+          <img src="{%  static 'img/img7.jpg' %}" class="img-fluid" alt="">
+        </a>
+      </div>
+    </div>
+    <div class="row py-0 mt-2">
+      <div class="col-md-4">
+        <a href="{%  static 'img/img5.jpg' %}">
+          <img src="{%  static 'img/img5.jpg' %}" class="img-fluid" alt="">
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="{%  static 'img/img6.jpg' %}">
+          <img src="{%  static 'img/img6.jpg' %}" class="img-fluid" alt="">
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="{%  static 'img/img7.jpg' %}">
+          <img src="{%  static 'img/img7.jpg' %}" class="img-fluid" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!------website features-------->
+<div id="website-features">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 feature-box">
+        <img src="{%  static 'img/img10.jpg' %}" alt="">
+        <div class="feature-text">
+          <p><b>100% original items</b>are available at conpany</p>
+        </div>
+      </div>
+      <div class="col-md-3 feature-box">
+        <img src="{%  static 'img/img10.jpg' %}" alt="">
+        <div class="feature-text">
+          <p><b>return within 30 days</b>of recieving your order.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 feature-box">
+        <img src="{%  static 'img/img10.jpg' %}" alt="">
+        <div class="feature-text">
+          <p><b>Get free delivery for every</b>order on more than price</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 feature-box">
+        <img src="{%  static 'img/img10.jpg' %}" alt="">
+        <div class="feature-text">
+          <p><b>pay online through multiple</b>payment option (card/net banking)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

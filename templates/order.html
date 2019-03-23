@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+ 
+  <title>E-Commerce Website</title>
+</head>
+<div id="form-form">
+  <div class="container border mt-4 w-50">
+    <h3 class="m-4 text-primary text-center">অর্ডার</h3>
+    <p class="text-center">আপনার অর্ডার স্থাপন করার জন্য সব পদক্ষেপ সম্পূর্ণ করুন</p>
+
+    <div class="d-flex justify-content-center">
+      <ul class="nav bg-light" role="tablist">
+        <li class="nav-item">
+          <a href="#step-1" id="step1-tab" class="nav-link active" aria-selected="true" data-toggle="tab" role="tab">অর্ডার</a>
+        </li>
+        <li class="nav-item">
+          <a href="#step-2" id="step2-tab" class="nav-link" aria-selected="false" data-toggle="tab" role="tab">যোগাযোগ</a>
+        </li>
+        <li class="nav-item">
+          <a href="#step-3" id="step3-tab" class="nav-link" aria-selected="false" data-toggle="tab" role="tab">Payment</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="step-1" aria-labelledby="step1-tab" role="tabpanel">
+        <div class="innerContent">
+          <h1 class="text-center mt-4">অর্ডার</h1>
+
+          <form class="p-3" action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="name">Name :</label>
+              <input type="text" class="form-control" name="name" value="" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+              <label for="name">Email address :</label>
+              <input type="email" class="form-control" name="email" value="" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="name">Phone Number :</label>
+              <input type="" class="form-control" name="phone" value="" placeholder="Number">
+            </div>
+
+            <div class="form-group">
+              <label for="inputAddress2">Delivary Address :</label>
+              <input type="text" name="address" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            </div>
+          <div class="form-group">
+              <label for="inputCity">City :</label>
+              <input type="text" name="city" class="form-control" placeholder="City">
+            </div>
+			<div class="form-group">
+				 <label>Quantity</label>
+          <input type="text" name="quantity" value="1">
+			</div>
+			<div class="form-group">
+        <label for="product_name">Product Name :</label>
+        <input type="text" name="product_name" class="form-control" value="{{ product.title }}" placeholder="{{ product.title }}" readonly>
+</div>
+
+<div class="form-group">
+            <label for="product_code">Product Code :</label>
+            <input class="display-4  text-dark" style="font-size: 1.5rem" type="text" name="product_code" value="{{ product.product_code }}" class="form-control" placeholder="{{ product.product_code}}" readonly>
+          </div>
+          <div class="form-group">
+                      <label for="price">Price :</label>
+                      <input class="display-4  text-dark" style="font-size: 1.5rem" type="text" name="price" value="{{ product.price }}" class="form-control" placeholder="{{ product.price }}" readonly>
+                    </div>
+
+            <button class="btn btn-warning btn-block btn-small" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="step-2" aria-labelledby="step2-tab" role="tabpanel">
+        <div class="innerContent">
+          <div class="row">
+            <div class="col-md-6 p-4">
+
+              <h4>আমাদের যে কোন সময় কল করুন</h4>
+                <h6>মোবাইল নাম্বার</h6>
+              <p class="mb-auto">+8801812977112</p>
+              <p>+8801817356354</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="step-3" aria-labelledby="step3-tab" role="tabpanel">
+        <div class="innerContent">
+        <h1>item 3</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+</body>
+</html>
