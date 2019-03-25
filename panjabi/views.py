@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib import messages
+
+from home.models import Order
 from .models import Panjabi
 # Create your views here.
 def panjabi(request):
@@ -33,7 +36,8 @@ def panjabi_order(request,pk):
         price=price,quantity=quantity,customar_name=name,customar_mail=email,
         customar_phone=phone, address=address,customar_city=city).save()
 
-
+        messages.success(request, 'Thanks for your Order! Sir. We will contact you very soon!')
+        return redirect('home')
     context={
     'product':product,
     }

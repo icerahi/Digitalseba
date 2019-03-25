@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from gift.models import Gift
-from nitto.models import Nitto
+from girls.models import Girls
 from panjabi.models import Panjabi
 from pant.models import Pant
 from shirt.models import Shirt
@@ -15,9 +15,9 @@ class GiftSerializer(serializers.ModelSerializer):
 
 
 
-class NittoSerializer(serializers.ModelSerializer):
+class GirlsSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Nitto
+        model=Girls
         fields=('title','product_code','price','picture','description','date','band','active')
 
 class PanjabiSerializer(serializers.ModelSerializer):

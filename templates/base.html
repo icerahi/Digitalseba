@@ -7,64 +7,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="{%  static 'css/uikit.min.css' %}">
-  <link rel="stylesheet" href="{%  static 'css/font-awesome.min.css' %}">
-  <link rel="stylesheet" href="{%  static 'css/bootstrap.css' %}">
-  <link rel="stylesheet" href="{%  static 'css/style.css' %}">
-  <link rel="stylesheet" href="{%  static 'css/.css' %}">
-
-  <title> Feni Digital Seba |{{ url_name }}</title>
-  <style media="screen">
-    .navbar ul li a{
-      color: white !important;
-    }
-    .navbar ul li:hover a{
-      color: gray !important;
-    }
-  </style>
+    
+     <link rel="shortcut icon" href="{% static 'img/d.jpg' %}">
+  <link rel="stylesheet" href="{% static 'css/uikit.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>BD DigitalSeba | {{ url_name }}</title>
 </head>
 <body>
-<nav class="navbar navbar-text-dark bg-dark  navbar-expand-sm fixed-top">
+  <!--------navigation------------>
+<nav class="navbar navbar-text-dark  navbar-dark bg-primary  navbar-expand-sm fixed-top">
   <div class="container">
-    <a class="{% if url_name == 'home' %}active{% else %}navbar-brand {% endif %} " href="{% url 'home' %}">
-    <img src="{%  static 'img/d.jpg' %}" class="img-fluid" width="50" height="50" alt="">
-    <h3 class="d-inline align-middle"> ডিজিটাল সেবা </h3>
+    <a class="navbar-brand" href="index.html">
+    <img src="{% static 'img/d.jpg' %}" class="img-fluid" width="50" height="50" alt="">
+        
+    <h3 class="d-inline align-middle">বিডি ডিজিটাল সার্ভিস </h3>
     </a>
     <button class="navbar-toggler navbar-toggler-right"  type="button" data-toggle="collapse" data-target="#imam"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="imam">
       <ul class="navbar-nav mx-auto">
-        <li class="nav-item active">
+          
+        <li class="nav-item {% if url_name == 'home' %}active{% endif %}">
           <a class="nav-link" href="{% url 'home' %}">হোম পেজ</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {% if url_name == 'shirt' %}active{% endif %}">
           <a class="nav-link" href="{% url 'shirt' %}">শার্ট</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {% if url_name == 'pant' %}active{% endif %}">
           <a class="nav-link" href="{% url 'pant' %}">প্যান্ট</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {% if url_name == 't_shirt' %}active{% endif %}">
           <a class="nav-link" href="{% url 't_shirt' %}">টি-শার্ট</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {% if url_name == 'panjabi' %}active{% endif %}">
           <a class="nav-link" href="{% url 'panjabi' %}">পাঞ্জাবি</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'nitto' %}">নিত্য প্রয়োজনীয়ি</a>
+        <li class="nav-item {% if url_name == 'girls' %}active{% endif %}">
+          <a class="nav-link" href="{% url 'girls' %}">গার্লস কালেকশন</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {% if url_name == 'gift' %}active{% endif %}">
           <a class="nav-link" href="{% url 'gift' %}">উপহার</a>
         </li>
-
+          
+          
       </ul>
     </div>
   </div>
 </nav>
 
+  {% if messages %}
+							<ul class='messages'>
+								{% for message in messages %}
+								<li>{{ message }}</li>
+								{% endfor %}
 
-
-
-<!--carousel slider-->
-{% block body %}{% endblock %}
+{% endif %}
+    {% block body %}{% endblock %}
+    
+    
 <!----------footer-------->
 <div id="footer">
   <div class="container">
@@ -87,22 +88,22 @@
       </div>
       <div class="col-md-3">
         <h3>Follow us on</h3>
-        <p><i class="fa fa-facebook-official"></i> Facebook</p>
-        <p><i class="fa fa-youtube-play"></i> YouTube</p>
-        <p><i class="fa fa-linkedin"></i> Linkdin</p>
-        <p><i class="fa fa-twitter"></i> Twitter</p>
+        <p><a href="https://www.facebook.com/Digital-Service-343736576234160/"><i class="fa fa-facebook-official"></i> Facebook</a></p>
+        <p><a href="#"><i class="fa fa-youtube-play"></i> YouTube</a></p>
+        <p><a href="#"><i class="fa fa-linkedin"></i> Linkdin</a></p>
+        <p><a href="#"><i class="fa fa-twitter"></i> Twitter</a></p>
       </div>
       <div class="col-md-3">
         <h3>Download App</h3>
         <div class="footer-img">
           <a href="#">
-            <img src="{%  static 'img/play.png' %}">
+            <img src="{% static 'img/play.png' %}">
           </a>
         </div>
       </div>
     </div>
     <hr>
-    <p class="copyright">Developed by <i class="fa fa-heart-o"></i>Team IceCream</p>
+    <p class="copyright">Developed By <i class="fa fa-heart-o"></i>Team IceCream Production</p>
   </div>
 </div>
 
@@ -112,11 +113,11 @@
 
 
 
-  <script src="{%  static 'js/jquery.min.js' %}"></script>
-  <script src="{%  static 'js/popper.min.js' %}"></script>
-  <script src="{%  static 'js/bootstrap.min.js' %}"></script>
-  <script src="{%  static 'js/uikit.min.js' %}"></script>
-  <script src="{%  static 'js/uikit-icons.min.js' %}"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/uikit.min.js' %}"></script>
+  <script src="{% static 'js/uikit-icons.min.js' %}"></script>
 
 </body>
 </html>

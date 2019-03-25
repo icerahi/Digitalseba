@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from gift.models import Gift
-from nitto.models import Nitto
+from girls.models import Girls
 from panjabi.models import Panjabi
 from pant.models import Pant
 from shirt.models import Shirt
@@ -10,7 +10,7 @@ from t_shirt.models import T_shirt
 
 def home(request):
     gift=Gift.objects.order_by('?')[:4]
-    nitto=Nitto.objects.order_by('?')[:4]
+    girls=Girls.objects.order_by('?')[:4]
     panjabi=Panjabi.objects.order_by('?')[:4]
     pant=Pant.objects.order_by('?')[:4]
     shirt=Shirt.objects.order_by('?')[:4]
@@ -18,7 +18,7 @@ def home(request):
 
     context={'title':'home',
      'gift':gift,
-     'nitto':nitto,
+     'girls':girls,
      'panjabi':panjabi,
      'pant':pant,
      'shirt':shirt,

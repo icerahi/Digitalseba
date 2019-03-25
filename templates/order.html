@@ -8,11 +8,13 @@
   <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
- 
+  <link rel="stylesheet" href="{% static 'css/.css' %}">
+    
   <title>E-Commerce Website</title>
 </head>
-<div id="form-form">
-  <div class="container border mt-4 w-50">
+<div id="form-form" class="col">
+  <div class="container">
+
     <h3 class="m-4 text-primary text-center">অর্ডার</h3>
     <p class="text-center">আপনার অর্ডার স্থাপন করার জন্য সব পদক্ষেপ সম্পূর্ণ করুন</p>
 
@@ -34,50 +36,58 @@
       <div class="tab-pane fade show active" id="step-1" aria-labelledby="step1-tab" role="tabpanel">
         <div class="innerContent">
           <h1 class="text-center mt-4">অর্ডার</h1>
-
+            
           <form class="p-3" action="" method="POST">
-            {% csrf_token %}
+              {% csrf_token %}
+              
             <div class="form-group">
               <label for="name">Name :</label>
-              <input type="text" class="form-control" name="name" value="" placeholder="Enter name">
+              <input type="text" class="form-control" name="name" value="" placeholder="Enter name" required>
             </div>
             <div class="form-group">
               <label for="name">Email address :</label>
-              <input type="email" class="form-control" name="email" value="" placeholder="Enter email">
+              <input type="email" class="form-control" name="email" value="" placeholder="Enter email" required>
             </div>
             <div class="form-group">
               <label for="name">Phone Number :</label>
-              <input type="" class="form-control" name="phone" value="" placeholder="Number">
+              <input type="" class="form-control" name="phone" value="" placeholder="Number" required>
             </div>
-
             <div class="form-group">
-              <label for="inputAddress2">Delivary Address :</label>
-              <input type="text" name="address" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
+                <label for="inputAddress">Delivary Address :</label>
+                <input type="text" name="address" class="form-control" id="inputAddress" placeholder="street address" required>
+              </div>
+             
           <div class="form-group">
               <label for="inputCity">City :</label>
-              <input type="text" name="city" class="form-control" placeholder="City">
+              <input type="text" name="city" class="form-control" placeholder="City" required>
             </div>
 			<div class="form-group">
 				 <label>Quantity</label>
-          <input type="text" name="quantity" value="1">
+          <input type="text" name="quantity" value="1" required>
 			</div>
-			<div class="form-group">
-        <label for="product_name">Product Name :</label>
-        <input type="text" name="product_name" class="form-control" value="{{ product.title }}" placeholder="{{ product.title }}" readonly>
-</div>
 
-<div class="form-group">
+              
+            <div class="form-group">
+				 <label for="product_name">Product Name :</label>
+                <input type="text" name="product_name" class="form-control"
+                       value="{{product.title}}" placeholder="{{product.title}}"
+                       readonly>
+                
+			</div>
+              <div class="form-group">
             <label for="product_code">Product Code :</label>
             <input class="display-4  text-dark" style="font-size: 1.5rem" type="text" name="product_code" value="{{ product.product_code }}" class="form-control" placeholder="{{ product.product_code}}" readonly>
           </div>
+              
           <div class="form-group">
                       <label for="price">Price :</label>
                       <input class="display-4  text-dark" style="font-size: 1.5rem" type="text" name="price" value="{{ product.price }}" class="form-control" placeholder="{{ product.price }}" readonly>
                     </div>
-
+              
             <button class="btn btn-warning btn-block btn-small" type="submit">Submit</button>
+              
           </form>
+            
         </div>
       </div>
       <div class="tab-pane fade" id="step-2" aria-labelledby="step2-tab" role="tabpanel">
@@ -95,7 +105,7 @@
       </div>
       <div class="tab-pane fade" id="step-3" aria-labelledby="step3-tab" role="tabpanel">
         <div class="innerContent">
-        <h1>item 3</h1>
+        <h1>Comming Soon... !</h1>
         </div>
       </div>
     </div>

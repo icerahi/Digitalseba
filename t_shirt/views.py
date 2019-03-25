@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib import messages
 from django.http import HttpResponse
+
+from home.models import Order
 from .models import T_shirt
 # Create your views here.
 
@@ -34,7 +37,8 @@ def t_shirt_order(request,pk):
         order=Order(product_name=p_name,product_code=p_code,
         price=price,quantity=quantity,customar_name=name,customar_mail=email,
         customar_phone=phone, address=address,customar_city=city).save()
-
+        messages.success(request, 'Thanks for your Order! Sir. We will contact you very soon!')
+        return redirect('home')
 
     context={
     'product':product,

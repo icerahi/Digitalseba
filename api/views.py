@@ -1,9 +1,9 @@
 from rest_framework.generics import ListAPIView,RetrieveAPIView
 
 from api.serializer import GiftSerializer, T_shirtSerializer, ShirtSerializer, PantSerializer, PanjabiSerializer, \
-    NittoSerializer
+    GirlsSerializer
 from gift.models import Gift
-from nitto.models import Nitto
+from girls.models import Girls
 from panjabi.models import Panjabi
 from pant.models import Pant
 from shirt.models import Shirt
@@ -19,12 +19,12 @@ class GiftDetailView(RetrieveAPIView):
 
 
 
-class NittoListView(ListAPIView):
-    queryset = Nitto.objects.all()
-    serializer_class = NittoSerializer
-class NittoDetailView(RetrieveAPIView):
-    queryset = Nitto.objects.all()
-    serializer_class = NittoSerializer
+class GirlsListView(ListAPIView):
+    queryset = Girls.objects.all()
+    serializer_class = GirlsSerializer
+class GirlsDetailView(RetrieveAPIView):
+    queryset = Girls.objects.all()
+    serializer_class = GirlsSerializer
 
 
 class PanjabiListView(ListAPIView):

@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 
 app_name=(
 'home',
-'nitto',
+'girls',
 'panjabi',
 'pant',
 'shirt',
@@ -19,7 +19,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('home.urls')),
     path('home/',include('home.urls')),
-    path('nitto/',include('nitto.urls')),
+    path('girls/',include('girls.urls')),
     path('panjabi/',include('panjabi.urls')),
     path('pant/',include('pant.urls')),
     path('shirt/',include('shirt.urls')),
@@ -27,4 +27,8 @@ urlpatterns = [
     path('gift/',include('gift.urls')),
 
     path('api/',include('api.urls'))
-] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
